@@ -1,18 +1,18 @@
 
-
-
-function ImageList({ images }) {
-    const imagesHTML = images.map((image, index) => (
+function ImageList({pics}) {
+    const picItems = pics.map(({src, caption}) => (
         <li>
-            <p>{image.caption}</p>
-            <img src={image.url} alt="my desk setup" />
+            <img src ={src} />
+            <p>{caption}</p>
         </li>
     ));
-
-    return <ul>{imagesHTML}</ul>
-        
+    return (
+        <ul>
+            {picItems}
+        </ul>
+    )
       
     
-}
+};
 
 export default ImageList;

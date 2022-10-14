@@ -1,5 +1,5 @@
-import ImageForm from "../ImageForm/ImageForm";
-import ImageList from "../ImageList/ImageList";
+import ImageForm from "./ImageForm";
+import ImageList from "./ImageList";
 import { useState } from "react";
 const INITIAL_IMAGES = [
     {

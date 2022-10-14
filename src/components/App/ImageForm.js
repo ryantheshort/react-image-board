@@ -1,42 +1,34 @@
-import { useState } from 'react';
+import {useState} from 'react';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-const INITIAL_STATE = {
-  caption: "",
-  url: "",
+function ImageForm({addImage}){
+  const [name, setName] = useState('');
+  const handleInput = (event) => {
+    setName(event.target.value);
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newPic = {}
+    addImage(newPic);
+    setName('');
+  };
+
+
+  return(
+    <Form onSubmit={handleSubmit}>
+      <Form.Group classname="mb-3" controlId='formImgUrl'>
+        <Form.Label>Image Url</Form.Label>
+        <Form.Control type='text' placeholder='Img Url...'></Form.Control>
+      </Form.Group>
+      <Form.Group classname="mb-3" controlId='imgCaption'>
+        <Form.Label>Caption Image</Form.Label>
+        <Form.Control type='text' placeholder='Enter Caption...'></Form.Control>
+      </Form.Group>
+      <Button variant="secondary">Cancel</Button>
+      <Button variant="success">Add Image</Button>
+    </Form>
+  )
 };
-
-function ImageForm({ addImage}){
-  
-    const [state, setState] = useState(INITIAL_STATE);
-      // const [caption, setCaption] = useState("");
-      // const [url, setUrl] = useState("");
-
-      
-      
-
-      const handleUrl = (e) => {
-        setUrl(e.target.value);
-      };
-      const handleInput = (e) => {
-        setState({ ...state, [e.target.name]: e.target.value });
-      };
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        addImage(state);
-        setState(INITIAL_STATE);
-      }
-    return(
-      <form onSubmitt={handleSubmit}>
-        <input
-          type="text"
-          name="caption"
-          value={state.caption}
-          onChange={handleInput}
-        
-        <input type="url" name="url" value={state.url} onChange={handleInput}/> 
-        <button type="submit">Add Image</button> 
-      </form>
-);
-}
 
 export default ImageForm;
