@@ -22,8 +22,13 @@ const INITIAL_PHOTOS = [
 ]
 
 function App() {
-  
+  const [pics, setPics] = useState(INITIAL_PHOTOS);
+  return (
+    <div>
 
+        <ImageBoard pics = {pics} />
+    </div>
+  )
 
 
 }
