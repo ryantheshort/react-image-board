@@ -1,18 +1,19 @@
-
-function ImageList({pics}) {
-    const picItems = pics.map(({src, caption}) => (
-        <li>
-            <img src ={src} />
-            <p>{caption}</p>
+function ImageList({items}){
+    const listItems = items.map(({src, text}) => (
+        <li class="img-box">
+            <img src={src}/>
+            <p class="img-text">{text}</p>
         </li>
     ));
-    return (
-        <ul>
-            {picItems}
+
+
+    return(
+      <div class="pic-list">
+        <ul class="list">
+          {listItems}
         </ul>
+      </div>
     )
-      
-    
 };
 
 export default ImageList;
