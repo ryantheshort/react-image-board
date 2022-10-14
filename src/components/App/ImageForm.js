@@ -1,6 +1,4 @@
 import {useState} from 'react';
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
 function ImageForm({addImage}){
   const [text, setText] = useState('');
@@ -24,19 +22,18 @@ function ImageForm({addImage}){
 
 
   return(
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId='formImgUrl'>
-        <Form.Label>Image Url</Form.Label>
-        <Form.Control type='url' name='urlInput' value={src} onChange={handleSrcInput} placeholder='Img Url...'></Form.Control>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId='imgCaption'>
-        <Form.Label>Caption Image</Form.Label>
-        <Form.Control type='text' value={text} name='textInput' onChange={handleTextInput} placeholder='Enter Caption...'></Form.Control>
-      </Form.Group>
-      <Button variant="secondary">Cancel</Button>
-      <Button variant="success">Add Image</Button>
-    </Form>
-  )
+    <form class="image-form" onSubmit={handleSubmit}>
+        <nav class="nav-bar"><i class="fa-solid fa-circle-plus"></i></nav>
+        <div class="inputs">
+            <input class="image-url" type='url' name='urlInput' value={src} onChange={handleSrcInput} placeholder="Image URL"></input>
+            <input class="image-caption" type='text' name='textInput' value={text} onChange={handleTextInput} placeholder="Image Caption "></input>
+        </div>
+        <div class="buttons">   
+            <button class="cancel-btn" name='closeButton'>Cancel</button>
+            <button class="add-btn" name='submitButton'><i class="fa-regular fa-image"></i>Add Image</button>
+        </div>
+      </form>
+    )
 };
 
 export default ImageForm;
